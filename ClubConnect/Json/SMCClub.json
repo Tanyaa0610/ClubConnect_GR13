@@ -1,0 +1,21 @@
+
+{
+    "header": {
+      "title": "Welcome, Club President",
+      "clubLogoSrc": "SATA Logo.png"
+    },
+    "clubProfile": {
+      "clubIconSrc": "SMCLogo.png",
+      "description": "We are the heartbeat of our campus, known for our dynamic events like the IPL Auction and the glamorous Fashion Crave.Our mission is to bring BMU's vibrant daily life to the forefront, creating a lively and engaging online community for all. Join us and be a part of the buzz that makes our campus extraordinary! Social Media Club"
+    },
+    "events": {
+      "eventWeekText": "Events this week",
+      "eventDetails": {
+        "title": "Movie Night:Chhichhore",
+        "time": "Wednesday, 9:00 PM",
+        "location": "Amphithere",
+        "invitation": "Everyone is invited"
+      }
+    }
+  }
+  

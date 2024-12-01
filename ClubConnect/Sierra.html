@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Your Event - ClubConnect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica', Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 22px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header .title {
+            font-weight: bold;
+            font-size: 28px;
+            color: #444;
+        }
+
+        header .club-logo img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .clubprofile, .events {
+            background-color: #fff;
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .club-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .club-icon img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .club-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .events-week {
+            font-size: 20px;
+            font-weight: bold;
+            color: #444;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .event-details {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="title"><a href="./BrowseEventPage.html">ClubConnect</a></div>
+    <div class="club-logo">
+        <img src="SATA Logo.png" alt="SATA">
+    </div>
+</header>
+
+<div class="clubprofile">
+    <div class="club-icon">
+        <img id="club-icon" src="" alt="Club Icon">
+    </div>
+    <div id="club-description" class="club-description"></div>
+</div>
+
+<div class="events">
+    <div id="events-week" class="events-week"></div>
+    <div id="event-details" class="event-details"></div>
+</div>
+
+<script>
+    fetch('Sierra.json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('club-icon').src = data.clubProfile.clubIconSrc;
+            document.getElementById('club-description').textContent = data.clubProfile.description;
+
+            document.getElementById('events-week').textContent = data.events.eventWeekText;
+            document.getElementById('event-details').innerHTML = `
+                <p><strong>Title:</strong> ${data.events.eventDetails.title}</p>
+                <p><strong>Time:</strong> ${data.events.eventDetails.time}</p>
+                <p><strong>Location:</strong> ${data.events.eventDetails.location}</p>
+                <p><strong>Invitation:</strong> ${data.events.eventDetails.invitation}</p>
+            `;
+        })
+        .catch(error => console.error('Error loading JSON:', error));
+</script>
+
+</body>
+</html>

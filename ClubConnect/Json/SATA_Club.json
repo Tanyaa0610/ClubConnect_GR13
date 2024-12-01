@@ -1,0 +1,21 @@
+
+{
+    "header": {
+      "title": "Welcome, Club President",
+      "clubLogoSrc": "SATA Logo.png"
+    },
+    "clubProfile": {
+      "clubIconSrc": "SATA Logo.png",
+      "description": "The Science and Technology Appreciation Club (SATA) promotes student participation in learning and mastering coding-based technologies.\n\nMission: Enhance understanding and proficiency in coding technologies and foster a community for practical skills and collaboration.\n\nWhy join SATA? Cultivate a passion for coding and engage in diverse activities, from workshops to hackathons. Delve into the world of tech - Code, Collaborate, Create: Join SATA Today!"
+    },
+    "events": {
+      "eventWeekText": "Events this week",
+      "eventDetails": {
+        "title": "The Origins of Coding Languages: A Journey Through Time",
+        "time": "Wednesday, 6 PM - 8 PM",
+        "location": "NB105",
+        "invitation": "Everyone is invited"
+      }
+    }
+  }
+  

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url('1.jpg');
+
+        }
+
+        nav {
+            background-color: #444;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: limegreen;
+            text-decoration: underline;
+        }
+
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .banner h1 {
+            position: relative;
+            color: white;
+            font-size: 48px;
+            text-align: center;
+            z-index: 2; 
+            padding: 20px;
+            font-weight: normal;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ClubConnect</div>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+
+            <li><a href="./LoginPage.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="banner">
+        <h1>Your one-stop destination for all club events!</h1>
+    </div>
+
+</body>
+</html>

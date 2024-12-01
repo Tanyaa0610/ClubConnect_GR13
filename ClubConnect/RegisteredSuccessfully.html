@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ClubConnect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .container {
+            width: 400px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Ensures alignment consistency */
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .register-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745; /* Changed to green for success indication */
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .register-btn:hover {
+            background-color: #218838;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+            display: block;
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+
+        .feedback-message {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #28a745; /* Success message color */
+        }
+
+        .error-message {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #dc3545; /* Error message color */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create an Account</h2>
+        <form id="registerForm">
+            <input type="email" placeholder="Enter your email" class="input-field" id="email" required>
+            <input type="password" placeholder="Enter your password" class="input-field" id="password" required>
+            <button type="submit" class="register-btn">Register</button>
+        </form>
+        <a href="login.html" class="login-link">Already have an account? Log in</a>
+        <!-- Placeholder for feedback messages -->
+        <div id="feedbackMessage" class="feedback-message"></div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const feedbackMessage = document.getElementById('feedbackMessage');
+
+            feedbackMessage.classList.remove('error-message');
+            feedbackMessage.classList.remove('feedback-message');
+            feedbackMessage.innerText = ''; // Clear previous messages
+
+            try {
+                const response = await fetch('http://localhost:5000/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                if (response.ok) {
+                    feedbackMessage.classList.add('feedback-message');
+                    feedbackMessage.innerText = 'Registration successful! Redirecting to login...';
+                    setTimeout(() => {
+                        window.location.href = 'LoginPage.html'; // Redirect after success
+                    }, 2000); // Delay for user to read the message
+                } else {
+                    const errorMessage = await response.text();
+                    feedbackMessage.classList.add('error-message');
+                    feedbackMessage.innerText = `Error: ${errorMessage}`;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                feedbackMessage.classList.add('error-message');
+                feedbackMessage.innerText = 'An error occurred while registering. Please try again.';
+            }
+        });
+    </script>
+</body>
+</html>

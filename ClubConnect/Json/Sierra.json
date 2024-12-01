@@ -1,0 +1,21 @@
+
+{
+    "header": {
+      "title": "Welcome, Club President",
+      "clubLogoSrc": "SATA Logo.png"
+    },
+    "clubProfile": {
+      "clubIconSrc": "SierraLogo.png",
+      "description": "Are you passionate about diplomacy? Here’s your chance to represent the Sierra Diplomacy Forum.Whether you're passionate or simply curious, your presence will contribute to the impact of this vital discussion."
+    },
+    "events": {
+      "eventWeekText": "Events this week",
+      "eventDetails": {
+        "title": "MUN Workshop",
+        "time": "Wednesday, 5 PM - 6 PM",
+        "location": "HUB A, BML Munjal University",
+        "invitation": "Everyone is invited"
+      }
+    }
+  }
+  
